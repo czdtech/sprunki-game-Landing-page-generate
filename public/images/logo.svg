@@ -4,8 +4,8 @@
     .logo-text { font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
   </style>
   <!-- 音符图标 -->
-  <path d="M30 8 L30 25 Q30 32 24 32 Q18 32 18 25 Q18 18 24 18 Q26 18 30 20" stroke="#7C3AED" stroke-width="2.5" fill="none"/>
-  <circle cx="22" cy="25" r="4" fill="#7C3AED"/>
+  <path d="M30 8 L30 25 Q30 32 24 32 Q18 32 18 25 Q18 18 24 18 Q26 18 30 20" stroke="#3b82f6" stroke-width="2.5" fill="none"/>
+  <circle cx="22" cy="25" r="4" fill="#3b82f6"/>
   <!-- 文字 -->
-  <text x="45" y="28" class="logo-text" font-size="24" font-weight="bold" fill="#7C3AED">FiddleBops</text>
+  <text x="45" y="28" class="logo-text" font-size="24" font-weight="bold" fill="#3b82f6">FiddleBops</text>
 </svg> 

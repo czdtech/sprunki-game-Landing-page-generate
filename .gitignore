@@ -1,24 +1,28 @@
-# build output
+# 构建输出和缓存
 dist/
-
-# generated types
 .astro/
 
-# dependencies
+# 依赖
 node_modules/
+package-lock.json
 
-# logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
+# 编辑器和IDE
+.vscode/
+.history/
 
-# environment variables
-.env
-.env.production
-
-# macOS-specific files
+# 系统文件
 .DS_Store
 
-# jetbrains setting folder
-.idea/
+# 环境变量
+.env
+.env.*
+!.env.example
+
+# 日志
+*.log
+npm-debug.log*
+
+# 临时文件
+.temp/
+.tmp/
+*.local

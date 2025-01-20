@@ -8,19 +8,19 @@ if (!gameConfig) {
   throw new Error('Game section configuration not found');
 }
 
-const { title, description, iframe, customStyles } = gameConfig.data;
+const { title, description, iframe } = gameConfig.data;
 ---
 
-<section class={customStyles.wrapper} id="game">
+<section class="bg-background py-16" id="game">
   <div class="container mx-auto">
-    <h2 class={customStyles.title}>{title}</h2>
-    <p class={customStyles.description}>{description}</p>
+    <h2 class="text-3xl font-bold text-center mb-4 text-text-primary">{title}</h2>
+    <p class="text-lg text-center mb-8 text-text-secondary max-w-2xl mx-auto">{description}</p>
     
     <div class="max-w-7xl mx-auto px-4">
       <div class="relative w-full aspect-[16/9] rounded-lg overflow-hidden shadow-xl">
-        <div class="game-placeholder flex flex-col items-center justify-center bg-purple-50 absolute inset-0">
+        <div class="game-placeholder flex flex-col items-center justify-center bg-card absolute inset-0">
           <button
-            class="start-game-btn bg-purple-600 text-white px-8 py-4 rounded-full text-xl font-semibold hover:bg-purple-700 transition-colors shadow-lg transform hover:scale-105 transition-transform duration-200"
+            class="start-game-btn bg-accent-blue hover:bg-accent-blue-light text-text px-8 py-4 rounded-full text-xl font-semibold transition-all duration-200 shadow-lg transform hover:scale-105"
           >
             开始游戏
           </button>
@@ -49,10 +49,8 @@ const { title, description, iframe, customStyles } = gameConfig.data;
 
     startButton?.addEventListener('click', () => {
       if (iframe && gameContainer && placeholder) {
-        // 设置 iframe 的 src 并显示游戏容器
         iframe.src = iframe.dataset.src || '';
         gameContainer.classList.remove('hidden');
-        // 隐藏占位区域
         placeholder.classList.add('hidden');
       }
     });
