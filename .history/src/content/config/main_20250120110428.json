@@ -1,0 +1,22 @@
+{
+  "siteTitle": "Sprunki",
+  "siteDescription": "Welcome to Sprunki Landing Page",
+  "navItems": [
+    {
+      "title": "Home",
+      "href": "/"
+    },
+    {
+      "title": "Features",
+      "href": "#features"
+    },
+    {
+      "title": "How to Play",
+      "href": "#how-to-play"
+    },
+    {
+      "title": "FAQ",
+      "href": "#faq"
+    }
+  ]
+} 

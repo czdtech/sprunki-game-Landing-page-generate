@@ -1,0 +1,12 @@
+logo: "/path/to/logo.png"
+items:
+  - name: "首页"
+    link: "/"
+  - name: "关于 FiddleBops"
+    link: "/about"
+  - name: "如何玩"
+    link: "/how-to-play"
+  - name: "社区作品"
+    link: "/community"
+  - name: "联系我们"
+    link: "/contact" 

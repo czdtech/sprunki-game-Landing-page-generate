@@ -1,0 +1,34 @@
+---
+import { getEntry } from 'astro:content';
+
+const gameConfig = await getEntry('config', 'game-section');
+const { title, description, iframe, customStyles } = gameConfig.data;
+---
+
+<section class={customStyles.wrapper}>
+  <h2 class={customStyles.title}>{title}</h2>
+  <p class={customStyles.description}>{description}</p>
+  
+  <div class="game-container relative aspect-video w-full">
+    <iframe
+      src={iframe.src}
+      width={iframe.width}
+      height={iframe.height}
+      frameborder="0"
+      allow={iframe.allow}
+      loading={iframe.loading}
+      class="rounded-lg shadow-md"
+    />
+  </div>
+</section>
+
+<style>
+  .game-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+</style> 

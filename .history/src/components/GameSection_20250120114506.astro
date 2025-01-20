@@ -1,0 +1,37 @@
+---
+import { getCollection } from 'astro:content';
+
+const gameSectionEntries = await getCollection('gameSection');
+const gameConfig = gameSectionEntries[0];
+
+if (!gameConfig) {
+  throw new Error('Game section configuration not found');
+}
+
+const { title, description, iframe, customStyles } = gameConfig.data;
+---
+
+<section class={customStyles.wrapper} id="game">
+  <div class="container mx-auto">
+    <h2 class={customStyles.title}>{title}</h2>
+    <p class={customStyles.description}>{description}</p>
+    
+    <div class={customStyles.game_container}>
+      <iframe
+        src={iframe.src}
+        width={iframe.width}
+        height={iframe.height}
+        frameborder="0"
+        allow={iframe.allow}
+        loading={iframe.loading}
+        class="absolute inset-0 w-full h-full"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  iframe {
+    border: none;
+  }
+</style> 

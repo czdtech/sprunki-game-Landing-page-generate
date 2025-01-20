@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="40" viewBox="0 0 200 40" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .logo-text { font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+  </style>
+  <!-- 音符图标 -->
+  <path d="M30 8 L30 25 Q30 32 24 32 Q18 32 18 25 Q18 18 24 18 Q26 18 30 20" stroke="#7C3AED" stroke-width="2.5" fill="none"/>
+  <circle cx="22" cy="25" r="4" fill="#7C3AED"/>
+  <!-- 文字 -->
+  <text x="45" y="28" class="logo-text" font-size="24" font-weight="bold" fill="#7C3AED">FiddleBops</text>
+</svg> 

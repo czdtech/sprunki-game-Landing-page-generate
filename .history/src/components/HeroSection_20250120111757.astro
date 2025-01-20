@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content';
+
+const heroEntries = await getCollection('hero');
+const hero = heroEntries[0];
+
+if (!hero) {
+  throw new Error('Hero configuration not found');
+}
+
+const { title, subtitle, cta_button } = hero.data;
+---
+
+<section class="bg-gradient-to-r from-purple-600 to-blue-600 text-white py-20">
+  <div class="container mx-auto px-4 text-center">
+    <h1 class="text-5xl font-bold mb-6">{title}</h1>
+    <p class="text-xl mb-8">{subtitle}</p>
+    <a 
+      href={cta_button.link}
+      class="bg-white text-purple-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors"
+    >
+      {cta_button.text}
+    </a>
+  </div>
+</section> 

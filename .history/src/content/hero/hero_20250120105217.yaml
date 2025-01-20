@@ -1,0 +1,5 @@
+title: "欢迎来到 FiddleBops!"
+subtitle: "在这里，音乐创作变得简单而有趣。"
+cta_button:
+  text: "立即开始"
+  link: "/start" 

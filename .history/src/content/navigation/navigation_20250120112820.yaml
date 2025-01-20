@@ -1,0 +1,12 @@
+logo: "/images/logo.png"
+items:
+  - name: "首页"
+    link: "/"
+  - name: "游戏特性"
+    link: "#features"
+  - name: "如何玩"
+    link: "#how-to-play"
+  - name: "常见问题"
+    link: "#faq"
+  - name: "联系我们"
+    link: "#contact" 

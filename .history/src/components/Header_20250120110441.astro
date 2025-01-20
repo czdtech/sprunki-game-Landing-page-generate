@@ -1,0 +1,28 @@
+---
+import { getEntry } from 'astro:content';
+
+// 获取配置数据
+const config = await getEntry('config', 'main');
+const { siteTitle, navItems } = config.data;
+---
+
+<header class="bg-white shadow-sm">
+  <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <a href="/" class="flex items-center">
+      <img src={logo} alt="FiddleBops Logo" class="h-8" />
+    </a>
+    
+    <ul class="flex space-x-6">
+      {navItems?.map((item) => (
+        <li>
+          <a 
+            href={item.href} 
+            class="text-gray-600 hover:text-gray-900 transition-colors"
+          >
+            {item.title}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</header> 

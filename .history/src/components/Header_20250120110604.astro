@@ -1,0 +1,27 @@
+---
+import { getEntry } from 'astro:content';
+
+const navigation = await getEntry('navigation', 'navigation');
+const { logo, items } = navigation.data;
+---
+
+<header class="bg-white shadow-sm">
+  <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <a href="/" class="flex items-center">
+      <img src={logo} alt="Sprunki Logo" class="h-8" />
+    </a>
+    
+    <ul class="flex space-x-6">
+      {items.map((item: { name: string; link: string }) => (
+        <li>
+          <a 
+            href={item.link} 
+            class="text-gray-600 hover:text-gray-900 transition-colors"
+          >
+            {item.name}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</header> 

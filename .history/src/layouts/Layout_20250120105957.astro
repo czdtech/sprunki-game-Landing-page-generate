@@ -1,13 +1,7 @@
 ---
-import { getCollection } from 'astro:content';
+import { getEntry } from 'astro:content';
 
-const metaEntries = await getCollection('meta');
-const meta = metaEntries[0];
-
-if (!meta) {
-	throw new Error('Meta configuration not found');
-}
-
+const meta = await getEntry('config', 'meta');
 const { title, description, keywords, author, favicon } = meta.data;
 
 interface Props {

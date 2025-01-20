@@ -1,0 +1,12 @@
+title: "开始游戏"
+description: "立即体验 FiddleBops 的音乐创作乐趣"
+iframe:
+  src: "https://fiddlebops-game-url.com"  # 替换为实际的游戏 URL
+  width: "100%"
+  height: "600px"
+  allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope"
+  loading: "lazy"
+customStyles:
+  wrapper: "bg-gray-100 rounded-lg shadow-lg p-6 my-8"
+  title: "text-2xl font-bold mb-4"
+  description: "text-gray-600 mb-6" 

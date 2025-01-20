@@ -4,8 +4,5 @@ import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind({
-    // 配置选项
-    applyBaseStyles: true
-  })]
+  integrations: [tailwind()]
 });

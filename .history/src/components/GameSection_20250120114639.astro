@@ -1,0 +1,64 @@
+---
+import { getCollection } from 'astro:content';
+
+const gameSectionEntries = await getCollection('gameSection');
+const gameConfig = gameSectionEntries[0];
+
+if (!gameConfig) {
+  throw new Error('Game section configuration not found');
+}
+
+const { title, description, iframe, customStyles } = gameConfig.data;
+---
+
+<section class={customStyles.wrapper} id="game">
+  <div class="container mx-auto">
+    <h2 class={customStyles.title}>{title}</h2>
+    <p class={customStyles.description}>{description}</p>
+    
+    <div class={`${customStyles.game_container} game-section`}>
+      <div class="game-placeholder flex flex-col items-center justify-center bg-purple-50 absolute inset-0 rounded-lg">
+        <button
+          class="start-game-btn bg-purple-600 text-white px-8 py-4 rounded-full text-xl font-semibold hover:bg-purple-700 transition-colors shadow-lg"
+        >
+          开始游戏
+        </button>
+      </div>
+      
+      <iframe
+        data-src={iframe.src}
+        width={iframe.width}
+        height={iframe.height}
+        frameborder="0"
+        allow={iframe.allow}
+        loading={iframe.loading}
+        class="absolute inset-0 w-full h-full hidden"
+      />
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const gameSection = document.querySelector('.game-section');
+    const startButton = gameSection?.querySelector('.start-game-btn');
+    const iframe = gameSection?.querySelector('iframe');
+    const placeholder = gameSection?.querySelector('.game-placeholder');
+
+    startButton?.addEventListener('click', () => {
+      if (iframe && placeholder) {
+        // 设置 iframe 的 src 并显示
+        iframe.src = iframe.dataset.src || '';
+        iframe.classList.remove('hidden');
+        // 隐藏占位区域
+        placeholder.classList.add('hidden');
+      }
+    });
+  });
+</script>
+
+<style>
+  iframe {
+    border: none;
+  }
+</style> 
