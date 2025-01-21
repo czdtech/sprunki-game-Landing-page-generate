@@ -8,7 +8,7 @@ if (!meta) {
 	throw new Error('Meta configuration not found');
 }
 
-const { title, description, keywords, author, favicon } = meta.data;
+const { title, description, keywords, author, favicon, og, twitter } = meta.data;
 
 interface Props {
 	title?: string;
@@ -19,6 +19,12 @@ const {
 	title: pageTitle = title,
 	description: pageDescription = description,
 } = Astro.props;
+
+// 安全地生成规范 URL
+let canonicalURL = Astro.url.pathname;
+if (Astro.site) {
+    canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+}
 ---
 
 <!DOCTYPE html>
@@ -28,9 +34,25 @@ const {
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>{pageTitle}</title>
 		<meta name="description" content={pageDescription} />
-		<meta name="keywords" content={keywords} />
-		<meta name="author" content={author} />
 		<link rel="icon" type="image/x-icon" href={favicon} />
+		<link rel="canonical" href={canonicalURL} />
+		
+		<!-- Open Graph -->
+		<meta property="og:title" content={pageTitle} />
+		<meta property="og:description" content={pageDescription} />
+		<meta property="og:type" content={og.type} />
+		<meta property="og:site_name" content={og.site_name} />
+		<meta property="og:image" content={og.image} />
+		<meta property="og:image:alt" content={og.image_alt} />
+		<meta property="og:locale" content={og.locale} />
+		<meta property="og:url" content={canonicalURL} />
+		
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content={twitter.card} />
+		<meta name="twitter:creator" content={twitter.creator} />
+		<meta name="twitter:title" content={pageTitle} />
+		<meta name="twitter:description" content={pageDescription} />
+		<meta name="twitter:image" content={og.image} />
 		
 		<!-- 添加 Tailwind CSS -->
 		<link rel="stylesheet" href="/styles/global.css" />

@@ -19,7 +19,18 @@ const meta = defineCollection({
     description: z.string(),
     keywords: z.string(),
     author: z.string(),
-    favicon: z.string()
+    favicon: z.string(),
+    og: z.object({
+      type: z.string(),
+      site_name: z.string(),
+      image: z.string(),
+      image_alt: z.string(),
+      locale: z.string()
+    }),
+    twitter: z.object({
+      card: z.string(),
+      creator: z.string()
+    })
   })
 });
 
